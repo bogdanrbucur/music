@@ -41,7 +41,7 @@ export default async () => {
     })
   ),
 
-  // Skip to next track
-  TE.chainW(() => music.player.next)
+  // Continue playing the playlist
+  TE.chainW(() => music.player.play)
 )();
 };

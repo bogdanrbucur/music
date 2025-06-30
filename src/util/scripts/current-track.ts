@@ -210,15 +210,12 @@ export const removeFromLibrary = runScript(`
   delay 0.1
   tell application "System Events"
     tell process "Music"
-      if exists (menu item "Remove Download" of menu "Song" of menu bar item "Song" of menu bar 1) then
-        click menu item "Remove Download" of menu "Song" of menu bar item "Song" of menu bar 1
+      if exists (menu item "Delete from Library" of menu "Song" of menu bar item "Song" of menu bar 1) then
+        click menu item "Delete from Library" of menu "Song" of menu bar item "Song" of menu bar 1
       end if
-      key code 51 using {option down}
-      delay 0.1
-        if exists (button "Delete Song" of window 1) then
-          click button "Delete Song" of window 1
-          exit repeat
-        end if
+      if exists (button "Delete Song" of window 1) then
+        click button "Delete Song" of window 1
+      end if
     end tell
   end tell
 `);
