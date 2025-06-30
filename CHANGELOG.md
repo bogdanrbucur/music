@@ -2,7 +2,7 @@
 
 ## [New Command] - {PR_MERGE_DATE}
 
-- Added a new command that removes the currently playing track from Downloads and from the Library.
+- Added a new command that removes the currently playing track from the Library.
 
 ## [New Config] - 2025-06-30
 
