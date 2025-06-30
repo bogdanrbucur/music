@@ -14,10 +14,9 @@ export default async () => {
   TE.chainFirst(() => pipe(
     music.currentTrack.reveal,
     TE.apFirst(music.general.activate),
-    // TE.chainFirst(() => TE.rightTask(() => new Promise((res) => setTimeout(res, 500))))
   )),
 
-  // Remove from Library (remove the download first, if there is one)
+  // Remove from Library
   TE.chainW((track) =>
     pipe(
       music.currentTrack.removeFromLibrary,
