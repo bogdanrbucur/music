@@ -6,8 +6,7 @@ import * as music from "./util/scripts";
 const showAnimatedToast = async (track: any) => {
   const toast = await showToast({
     style: Toast.Style.Animated,
-    title: `Removed track ${track.artist} - ${track.name} from Library and Downloads.`,
-    message: "This action cannot be undone. Re-add the track to your Library if you want to keep it.",
+    title: `Track ${track.artist} - ${track.name} removed from Library and Downloads`,
   });
   await new Promise((resolve) => setTimeout(resolve, 10000));
   await toast.hide();
