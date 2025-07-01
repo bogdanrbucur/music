@@ -9,13 +9,11 @@ export default async () => {
   await pipe(
   // Get current track metadata
   music.currentTrack.getCurrentTrackInfo(),
-
   // Reveal the current track in Music
   TE.chainFirst(() => pipe(
     music.currentTrack.reveal,
     TE.apFirst(music.general.activate),
   )),
-
   // Remove from Library
   TE.chainW((track) =>
     pipe(
@@ -23,7 +21,6 @@ export default async () => {
       TE.map(() => track), // preserve original metadata
     )
   ),
-
   // Show success toast
   TE.map((track) =>
     showToast({
@@ -31,7 +28,6 @@ export default async () => {
       title: `Removed ${track.artist} - ${track.name} from Library.`,
     })
   ),
-
   // Show failure toast
   TE.mapLeft(() =>
     showToast({
@@ -39,7 +35,6 @@ export default async () => {
       title: "Error while removing track from Library.",
     })
   ),
-
   // Continue playing the playlist
   TE.chainW(() => music.player.play)
 )();
