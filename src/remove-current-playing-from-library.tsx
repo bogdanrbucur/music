@@ -1,9 +1,10 @@
 import { closeMainWindow, showToast, Toast } from "@raycast/api";
 import { pipe } from "fp-ts/lib/function";
 import * as TE from "fp-ts/TaskEither";
+import { Track } from "./util/models";
 import * as music from "./util/scripts";
 
-const showAnimatedToast = async (track: any) => {
+const showAnimatedToast = async (track: Readonly<Pick<Track, "artist" | "name" | "album">>) => {
   const toast = await showToast({
     style: Toast.Style.Animated,
     title: `Track ${track.artist} - ${track.name} removed from Library and Downloads`,
